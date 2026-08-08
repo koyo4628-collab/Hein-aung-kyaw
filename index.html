@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yay Kyi Bin Technology - ဧရာဝတီစမတ်ကျေးရွာ</title>
-    <!-- Google Fonts: Pyidaungsu & Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Pyidaungsu:wght@400;700&display=swap" rel="stylesheet">
+    <title id="app-title">Yay Kyi Bin Technology - ဧရာဝတီစမတ်ကျေးရွာ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Pyidaungsu:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Firebase SDK v8 -->
@@ -14,40 +14,32 @@
 
     <style>
         :root {
-            --primary: #059669;
-            --primary-light: #34d399;
-            --primary-dark: #047857;
-            --accent: #f59e0b;
-            --bg: #f0fdf4;
+            --primary: #6366f1;
+            --primary-dark: #4338ca;
+            --accent: #f43f5e;
+            --bg: #f8fafc;
             --card: #ffffff;
-            --text: #064e3b;
-            --text-light: #047857;
-            --border: #a7f3d0;
-            --shadow: 0 15px 35px -5px rgba(5, 150, 105, 0.1), 0 5px 15px -5px rgba(0, 0, 0, 0.05);
-            --gradient: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+            --text: #0f172a;
+            --text-light: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #f43f5e 100%);
         }
 
         [data-theme="dark"] {
-            --primary: #10b981;
-            --primary-light: #34d399;
-            --primary-dark: #059669;
-            --accent: #fbbf24;
-            --bg: #064e3b;
-            --card: #022c22;
-            --text: #ecfdf5;
-            --text-light: #a7f3d0;
-            --border: #047857;
-            --shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
-            --gradient: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+            --primary: #818cf8;
+            --primary-dark: #6366f1;
+            --accent: #fb7185;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --text-light: #94a3b8;
+            --border: #334155;
+            --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            --gradient: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #e11d48 100%);
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Pyidaungsu', 'Outfit', sans-serif; 
-            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease; 
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', 'Pyidaungsu', sans-serif; transition: background 0.3s ease, color 0.3s ease; }
 
         body {
             background: var(--bg);
@@ -55,14 +47,13 @@
             padding-bottom: 120px;
         }
 
-        /* VPN Notice Banner */
         .vpn-banner {
-            background: #ef4444;
+            background: #f43f5e;
             color: white;
             text-align: center;
             padding: 10px 15px;
-            font-size: 0.95rem;
-            font-weight: bold;
+            font-size: 0.9rem;
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -70,39 +61,51 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* Deluxe Header Design */
         header {
             background: var(--gradient);
             color: white;
-            padding: 30px 20px 40px;
+            padding: 30px 20px;
             text-align: center;
-            border-radius: 0 0 40px 40px;
+            border-radius: 0 0 35px 35px;
             box-shadow: var(--shadow);
             position: relative;
-            overflow: hidden;
+        }
+
+        .header-menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
         }
 
         header h1 { 
-            font-size: 2.2rem; 
-            margin-bottom: 8px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 12px; 
-            font-weight: 800;
+            font-size: 1.8rem; 
+            margin-bottom: 5px; 
+            font-weight: 900; 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
         }
 
-        header h1 i { color: var(--accent); }
+        header p { font-size: 1rem; opacity: 0.95; font-weight: 400; }
 
-        header p { 
-            font-size: 1.1rem; 
-            opacity: 0.95; 
-            font-weight: 600;
-        }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
 
-        .container { max-width: 750px; margin: auto; padding: 20px; }
-
-        /* Navigation Pages */
         .page { display: none; animation: fadeIn 0.4s ease-in-out; }
         .page.active { display: block; }
 
@@ -111,59 +114,76 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Stunning Card Style */
         .card {
             background: var(--card);
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 24px;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             border: 2px solid var(--border);
             box-shadow: var(--shadow);
-            position: relative;
         }
 
-        .card h3 {
+        .card h2 {
             color: var(--primary);
             margin-bottom: 15px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.3rem;
-            font-weight: 700;
+            gap: 10px;
+            font-size: 1.25rem;
         }
 
-        /* Post & Images */
-        .post-img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 16px;
-            cursor: pointer;
+        .image-upload-box {
             border: 3px dashed var(--primary);
+            border-radius: 16px;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
             margin-bottom: 15px;
         }
 
-        .village-desc {
-            font-size: 1.05rem;
+        .image-upload-box img {
+            width: 100%;
+            height: 100%;
+            max-height: 450px;
+            object-fit: contain;
+            position: absolute;
+            top: 0; left: 0;
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+        .upload-placeholder i { font-size: 3rem; margin-bottom: 12px; display: block; color: var(--primary); }
+
+        .desc-box {
+            font-size: 1rem;
             line-height: 1.7;
             color: var(--text-light);
             background: var(--bg);
             padding: 16px;
-            border-radius: 14px;
+            border-radius: 12px;
             border: 1px solid var(--border);
+            margin-bottom: 15px;
         }
 
-        /* Forms & Inputs */
         input, textarea, select {
             width: 100%;
             padding: 14px 18px;
-            border-radius: 14px;
+            border-radius: 12px;
             border: 2px solid var(--border);
             background: var(--bg);
             color: var(--text);
             font-size: 1rem;
-            margin-top: 8px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             outline: none;
         }
 
@@ -171,281 +191,218 @@
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 16px;
-            border-radius: 14px;
+            padding: 15px;
+            border-radius: 12px;
             width: 100%;
-            font-size: 1.05rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Modern Feedback Design */
+        .modern-chat-wrapper {
+            background: var(--bg);
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-messages {
+            height: 380px;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            scroll-behavior: smooth;
+        }
+
+        .chat-bubble-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 16px 16px 16px 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            max-width: 85%;
+        }
+
+        .chat-header-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .chat-username {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .chat-body-text {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-break: break-word;
+            padding-left: 40px;
+        }
+
+        .chat-input-group {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input-row input {
+            margin: 0;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .send-btn-modern {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            border-radius: 12px;
             font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
-        }
-
-        /* Developer Profile Card Special Design */
-        .dev-card {
-            background: linear-gradient(145deg, var(--card), var(--bg));
-            border: 2px solid var(--accent);
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        .dev-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 2.5rem;
-            color: white;
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
-            border: 3px solid var(--accent);
-        }
-
-        .dev-name {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .tiktok-btn {
-            display: inline-flex;
-            align-items: center;
             gap: 8px;
-            background: #000000;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.4);
         }
 
-        .tiktok-btn:hover {
-            background: #222222;
-        }
-
-        /* Gorgeous Bottom Navbar */
+        /* Bottom Nav Bar */
         .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: var(--card);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            border-top: 2px solid var(--border);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 75px;
+            background: var(--card); display: flex; justify-content: space-around; align-items: center;
+            border-top: 2px solid var(--border); z-index: 1000;
         }
 
         .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            color: var(--text-light);
-            font-size: 0.7rem;
-            font-weight: 700;
-            background: none;
-            border: none;
-            padding: 6px 8px;
-            border-radius: 12px;
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
+            cursor: pointer; color: var(--text-light); font-size: 0.65rem; font-weight: 700;
+            background: none; border: none; padding: 6px; border-radius: 10px;
         }
-
-        .nav-item i { font-size: 1.2rem; }
-        .nav-item.active { 
-            color: white; 
-            background: var(--primary);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .feedback-item {
-            background: var(--bg);
-            padding: 14px;
-            border-radius: 12px;
-            margin-top: 12px;
-            font-size: 0.95rem;
-            border: 1px solid var(--border);
-        }
+        .nav-item i { font-size: 1.1rem; }
+        .nav-item.active { color: white; background: var(--primary); }
     </style>
 </head>
 <body data-theme="light">
 
-    <!-- US Server VPN Notice -->
-    <div class="vpn-banner">
-        <i class="fa-solid fa-triangle-exclamation"></i> ဤ Website သည် US Server နှင့် ချိတ်ဆက်ထားပါသဖြင့် အဆင်ပြေစွာ အသုံးပြုနိုင်ရန် **VPN ဖွင့်ထားပေးပါရန်** မေတ္တာရပ်ခံအပ်ပါသည်။
+    <div class="vpn-banner" id="vpn-text">
+        <i class="fa-solid fa-triangle-exclamation"></i> US Server ချိတ်ဆက်ထားပါသဖြင့် VPN ဖွင့်ထားပေးပါ။
     </div>
 
     <header>
-        <h1><i class="fa-solid fa-seedling"></i> <span data-i="app_title">Yay Kyi Bin Technology</span></h1>
-        <p><i class="fa-solid fa-microchip"></i> <span data-i="app_subtitle">ရွာအလှနှင့် နည်းပညာ တီထွင်ဖန်တီးမှုများ</span></p>
+        <button class="header-menu-btn" onclick="alert('Menu clicked!')"><i class="fa-solid fa-bars"></i></button>
+        <h1 id="hdr-title"><i class="fa-solid fa-robot"></i> Yay Kyi Bin Technology</h1>
+        <p id="hdr-subtitle">ရွာအလှနှင့် နည်းပညာ တီထွင်ဖန်တီးမှုများ</p>
     </header>
 
     <div class="container">
 
-        <!-- Tab 1: ရွာရှုခင်းအလှများ -->
-        <div id="tab-beauty" class="page active">
-            <h2 style="margin-bottom: 20px; color: var(--primary); display: flex; align-items: center; gap: 10px; font-weight: 800;">
-                <i class="fa-solid fa-mountain-sun"></i> <span data-i="nav_beauty">ရွာရှုခင်းအလှများ</span>
-            </h2>
-            
-            <div class="card">
-                <h3><i class="fa-solid fa-camera-retro"></i> <span data-i="p1_title">ရှုခင်းအလှ ၁</span></h3>
-                <img src="https://via.placeholder.com/600x300?text=Beauty+1" class="post-img" id="img-p1" onclick="triggerUpload('file-p1')">
-                <input type="file" accept="image/*" id="file-p1" style="display:none" onchange="uploadImage(event, 'p1')">
-                <div class="village-desc"><span data-i="p1_desc">ရေကြည်ပင်ရွာ၏ သဘာဝဆန်သော ကျေးလက်ရှုခင်းနှင့် စိမ်းလန်းစိုပြေသည့် လယ်ကွင်းပြင်များ။</span></div>
-            </div>
-
-            <div class="card">
-                <h3><i class="fa-solid fa-camera-retro"></i> <span data-i="p2_title">ရှုခင်းအလှ ၂</span></h3>
-                <img src="https://via.placeholder.com/600x300?text=Beauty+2" class="post-img" id="img-p2" onclick="triggerUpload('file-p2')">
-                <input type="file" accept="image/*" id="file-p2" style="display:none" onchange="uploadImage(event, 'p2')">
-                <div class="village-desc"><span data-i="p2_desc">ရွာဦးကျောင်းတိုက်နှင့် အေးချမ်းသာယာသော ရေကန်ဘေးဝန်းကျင်။</span></div>
-            </div>
-
-            <div class="card">
-                <h3><i class="fa-solid fa-camera-retro"></i> <span data-i="p3_title">ရှုခင်းအလှ ၃</span></h3>
-                <img src="https://via.placeholder.com/600x300?text=Beauty+3" class="post-img" id="img-p3" onclick="triggerUpload('file-p3')">
-                <input type="file" accept="image/*" id="file-p3" style="display:none" onchange="uploadImage(event, 'p3')">
-                <div class="village-desc"><span data-i="p3_desc">ကျေးလက်နေပြည်သူများ၏ နံနက်ခင်း ဆည်းဆာ အလှတရားများ။</span></div>
-            </div>
-
-            <div class="card">
-                <h3><i class="fa-solid fa-camera-retro"></i> <span data-i="p4_title">ရှုခင်းအလှ ၄</span></h3>
-                <img src="https://via.placeholder.com/600x300?text=Beauty+4" class="post-img" id="img-p4" onclick="triggerUpload('file-p4')">
-                <input type="file" accept="image/*" id="file-p4" style="display:none" onchange="uploadImage(event, 'p4')">
-                <div class="village-desc"><span data-i="p4_desc">ရွာဝင်လမ်းမကြီးတစ်လျှောက်ရှိ စိမ်းလန်းစိုပြေသော သစ်ပင်ကြီးများ။</span></div>
-            </div>
-
-            <div class="card">
-                <h3><i class="fa-solid fa-camera-retro"></i> <span data-i="p5_title">ရှုခင်းအလှ ၅</span></h3>
-                <img src="https://via.placeholder.com/600x300?text=Beauty+5" class="post-img" id="img-p5" onclick="triggerUpload('file-p5')">
-                <input type="file" accept="image/*" id="file-p5" style="display:none" onchange="uploadImage(event, 'p5')">
-                <div class="village-desc"><span data-i="p5_desc">ရွာသူရွာသားများ၏ ချစ်စရာကောင်းသော ရိုးရာဓလေ့နှင့် လူနေမှုဘဝပုံစံ။</span></div>
-            </div>
+        <!-- Tab 1: Gallery -->
+        <div id="tab-gallery" class="page active">
+            <h2 id="gallery-heading" style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-images"></i> ရွာရှုခင်းပြခန်း (ပုံ ၂၀ ခုစာ)</h2>
+            <div id="twenty-gallery-container"></div>
         </div>
 
-        <!-- Tab 2: ရွာအကြောင်းအစုံ နှင့် Developer အကြောင်း -->
+        <!-- Tab 2: Village Intro & Author (Full Content) -->
         <div id="tab-about" class="page">
             <div class="card">
-                <h3><i class="fa-solid fa-book-bookmark"></i> <span data-i="nav_about">ရွာအကြောင်း အစုံအလင်</span></h3>
-                <div class="village-desc" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">
-                    <p><strong>📍 တည်နေရာနှင့် သမိုင်းကြောင်း:</strong><br>
-                    ရေကြည်ပင်ရွာသည် သဘာဝအလှတရားများနှင့် ရိုးရှင်းအေးချမ်းသော လူနေမှုဘဝများဖြင့် တည်ရှိနေသော ချစ်စရာကောင်းသည့် ကျေးရွာလေးတစ်ရွာ ဖြစ်ပါသည်။ ရှေးယခင်က ရေကြည်ပင်ကြီးကို အစွဲပြု၍ ခေါ်ဝေါ်ခဲ့ရာမှ ယနေ့အချိန်တွင် ရေကြည်ပင်ရွာအဖြစ် လူသိများလာခဲ့သည်။[span_0](start_span)[span_0](end_span)</p><br>
-                    
-                    <p><strong>🌾 စီးပွားရေးနှင့် လူနေမှုဘဝ:</strong><br>
-                    ဤရွာတွင် ရွာသူရွာသားများသည် စိုက်ပျိုးရေးလုပ်ငန်းကို အဓိကထားလုပ်ကိုင်ကြပြီး ရိုးသားမှု၊ ကြိုးစားမှုနှင့် အချင်းချင်းရိုင်းပင်းကူညီမှုတို့ဖြင့် စည်းလုံးညီညွတ်စွာ နေထိုင်ကြပါသည်။[span_1](start_span)[span_1](end_span)</p><br>
-
-                    <p><strong>🏛️ ထင်ရှားသောနေရာများ:</strong><br>
-                    - <strong>ရွာဦးကျောင်းတိုက်:</strong> အေးချမ်းသာယာပြီး လာရောက်ဖူးမြော်လေ့လာသူများအတွက် ကြည်နူးဖွယ်ကောင်းသော နေရာတစ်ခု ဖြစ်ပါသည်။[span_2](start_span)[span_2](end_span)<br>
-                    - <strong>ယမားချောင်းနှင့် ကျားတွင်းတောင်:</strong> ရွာ၏တောင်ဘက်တွင်ရှိပြီး သဘာဝအလှကို ပိုမိုထင်ရှားစေကာ တောင်ပေါ်မှကြည့်လျှင် ရွာ၏အလှကို အပေါ်စီးမှ ခံစားနိုင်ပါသည်။[span_3](start_span)[span_3](end_span)<br>
-                    - <strong>စာသင်ကျောင်းနှင့် လူငယ်အသိုင်းအဝိုင်း:</strong> လူငယ်များ ပညာသင်ကြားရာနေရာဖြစ်ပြီး ညနေခင်းများတွင် ဘောလုံးကစားခြင်းဖြင့် ရွာလေးအား အသက်ဝင်စေပါသည်။[span_4](start_span)[span_4](end_span)</p><br>
-                    
-                    <p style="text-align: right; font-weight: bold; color: var(--primary);">✍️ ရေးသားသူ - H.A.K[span_5](start_span)[span_5](end_span)</p>
+                <h2 id="about-heading"><i class="fa-solid fa-book-open"></i> ရေကြည်ပင်ရွာ မိတ်ဆက်</h2>
+                <div class="desc-box" style="line-height: 1.9; font-size: 1.05rem;" id="about-content">
+                    <p>ရေကြည်ပင်ရွာ သည် သဘာဝအလှတရားများနှင့် ရိုးရှင်းအေးချမ်းသော လူနေမှုဘဝများဖြင့် တည်ရှိနေသော ချစ်စရာကောင်းသည့် ကျေးရွာလေးတစ်ရွာ ဖြစ်ပါသည်။</p><br>
+                    <p>ဤရွာတွင် ရွာသူရွာသားများသည် စိုက်ပျိုးရေးလုပ်ငန်းကို အဓိကထားလုပ်ကိုင်ကြပြီး ရိုးသားမှု၊ ကြိုးစားမှုနှင့် အချင်းချင်းရိုင်းပင်းကူညီမှုတို့ဖြင့် စည်းလုံးညီညွတ်စွာ နေထိုင်ကြပါသည်။</p><br>
+                    <p>ရှေးယခင်က ရေကြည်ပင်ကြီး ကို အစွဲ ပြု၍ ခေါ်ဝေါ်ခဲ့ရာမှ ယနေ့အချိန်တွင် ရေကြည်ပင်ရွာ အဖြစ် လူသိများလာခဲ့ပါသည်။ ရွာ၏အထင်ကရနေရာတစ်ခုဖြစ်သော ဘုရားကြီးကျောင်းတိုက် သည် အေးချမ်းသာယာပြီး လာရောက်ဖူးမြော်လေ့လာသူများအတွက် ကြည်နူးဖွယ်ကောင်းသော နေရာတစ်ခု ဖြစ်ပါသည်။</p><br>
+                    <p>ရေကြည်ပင်ရွာ၏ တောင်ဘက်တွင်ရှိသော ယမားချောင်း နှင့် အနီးအနားရှိ ကျားတွင်းတောင် တို့သည် ရွာ၏ သဘာဝအလှကို ပိုမိုထင်ရှားစေသော နေရာများဖြစ်ပါသည်။ ကျားတွင်းတောင်ပေါ်မှ ကြည့်ရှုလျှင် ရေကြည်ပင်ရွာ၏ သာယာလှပသော မြင်ကွင်းများကို အပေါ်စီးမှ ခံစားနိုင်ပါသည်။</p><br>
+                    <p>ရွာထိပ်တွင် တည်ရှိသော စာသင်ကျောင်းသည် လူငယ်များ၏ ပညာရေးအတွက် အရေးပါသော နေရာတစ်ခုဖြစ်ပြီး ညနေခင်းအချိန်များတွင် လူငယ်များ စုပေါင်း၍ ဘောလုံးကစားခြင်းများဖြင့် ရွာလေး၏ အသက်ဝင်မှုနှင့် ပျော်ရွှင်မှုများကို ဖော်ပြနေပါသည်။</p><br>
+                    <p>ယနေ့ခေတ် ဖွံ့ဖြိုးတိုးတက်လာသော နည်းပညာခေတ်နှင့်အတူ ရေကြည်ပင်ရွာမှ လူငယ်များသည်လည်း ခေတ်မီပညာရပ်များကို စိတ်ဝင်စားစွာ လေ့လာလာကြပါသည်။ ထိုအထဲမှ လူငယ်တစ်ဦးသည် IT နည်းပညာပိုင်းကို အားကြိုးမာန်တက် လေ့လာနေပြီး အနာဂတ်တွင် ရရှိလာသော အသိပညာနှင့် အတွေ့အကြုံများကို အသုံးချကာ မိမိရွာ၏ ဖွံ့ဖြိုးတိုးတက်မှုအတွက် ပြန်လည်အကျိုးပြုနိုင်ရန် ရည်ရွယ်ထားပါသည်။</p><br>
+                    <p>ရေကြည်ပင်ရွာသည် သဘာဝအလှ၊ ရိုးသားကြိုးစားသော လူများနှင့် နွေးထွေးသော ရွာဓလေ့များ ပေါင်းစပ်ထားသည့် အေးချမ်းသာယာသော နေရာလေးတစ်ခုဖြစ်ပြီး နည်းပညာနှင့် ပညာရေး၏ အင်အားဖြင့် အနာဂတ်တွင် ပိုမိုတိုးတက်လှပလာမည့် ရွာလေးတစ်ရွာ ဖြစ်လာမည်ဟု ယုံကြည်ပါသည်။</p><br>
+                    <p style="text-align: right; font-weight: bold; color: var(--primary); margin-top: 15px;">✍️ ရေးသားသူ - Hein Aung Kyaw (H.A.K)</p>
                 </div>
-            </div>
-
-            <!-- App ရေးသားသူအကြောင်း (Hein Aung Kyaw & TikTok Icon) -->
-            <div class="card dev-card">
-                <div class="dev-avatar">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <div class="dev-name">Hein Aung Kyaw</div>
-                <div class="dev-title"><span data-i="dev_role">Lead Developer & Community Technologist</span></div>
-                <div class="dev-bio" style="margin-bottom: 15px;">
-                    <p><strong style="color: var(--primary);"><i class="fa-solid fa-user-gear"></i> Yay Kyi Bin Tech Team</strong></p>
-                    <p style="margin-top: 8px; color: var(--text-light);">ရေကြည်ပင်ရွာ၏ ဒစ်ဂျစ်တယ်အသွင်ပြောင်းလဲမှုနှင့် နည်းပညာရပ်ဆိုင်ရာ အသိပညာပေးလုပ်ငန်းများကို လုပ်ဆောင်နေသူ ဖြစ်ပါသည်။[span_6](start_span)[span_6](end_span)</p>
-                </div>
-                <!-- Developer မျက်နှာကြည့်ရန် / TikTok Icon Link -->
-                <p style="font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; color: var(--text);">Developer ရဲ့ မျက်နှာကို ကြည့်ချင်ရင် အောက်ပါ TikTok Icon ကို နှိပ်ပါ -</p>
-                <a href="https://www.tiktok.com/@hein61449" target="_blank" class="tiktok-btn">
-                    <i class="fa-brands fa-tiktok"></i> @hein61449
-                </a>
             </div>
         </div>
 
-        <!-- Tab 3: Update များ (Updates & Announcements) -->
+        <!-- Tab 3: Updates -->
         <div id="tab-updates" class="page">
             <div class="card">
-                <h3><i class="fa-solid fa-bullhorn"></i> <span>Update နှင့် ကြေညာချက်များ</span></h3>
-                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 15px;">ဝဘ်ဆိုဒ်နှင့် ရွာအခြေအနေ အသစ်အဆန်းများကို ဤနေရာတွင် တင်ပေးသွားပါမည်။</p>
-                
-                <div class="village-desc" style="margin-bottom: 12px;">
-                    <strong style="color: var(--primary);"><i class="fa-solid fa-circle-check"></i> Version 1.3 Update (Latest)</strong>
-                    <p style="margin-top: 5px;">- Developer အမည်ကို Hein Aung Kyaw သို့ တရားဝင် အပ်ဒိတ်လုပ်ထားခြင်း။</p>
-                    <p>- ရွာအကြောင်းအရာများကို အသေးစိတ် အစုံအလင် ထည့်သွင်းပေးထားခြင်း။</p>
-                    <p>- ဂျပန်စာလေ့လာသူများအတွက် သီးသန့်ကဏ္ဍ ထည့်သွင်းထားခြင်း။</p>
-                </div>
-
-                <div class="village-desc">
-                    <strong style="color: var(--accent);"><i class="fa-solid fa-clock"></i> နောင်လာမည့် အစီအစဉ်များ</strong>
-                    <p style="margin-top: 5px;">- နောင်လာမည့် အစီအစဉ်များတွင် အလန်းစား Design အသစ်များကို တင်ဆက်ပေးသွားမည်ဖြစ်ပါသည်။</p>
-                </div>
+                <h2 id="updates-heading"><i class="fa-solid fa-bullhorn"></i> နည်းပညာနှင့် ရွာသတင်းများ</h2>
+                <div class="desc-box" id="updates-content">ရေကြည်ပင်ရွာ စမတ်ကျေးရွာ တည်ဆောက်ရေးအတွက် IT နည်းပညာများနှင့် ဒစ်ဂျစ်တယ်စနစ်များကို အကောင်အထည်ဖော်လျက်ရှိပါသည်။</div>
             </div>
         </div>
 
-        <!-- Tab 4: ဂျပန်စာလေ့လာရန် (Japanese Learning) -->
+        <!-- Tab 4: Japanese Learning -->
         <div id="tab-japanese" class="page">
             <div class="card">
-                <h3><i class="fa-solid fa-language"></i> <span>ဂျပန်စာ လေ့လာရေးကဏ္ဍ (日本語学習)</span></h3>
-                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 15px;">ဂျပန်စာလေ့လာနေသူများအတွက် အသုံးဝင်သော အခြေခံဝေါဟာရများနှင့် လေ့ကျင့်ခန်းများ။</p>
-                
-                <div class="village-desc" style="margin-bottom: 15px;">
-                    <strong style="color: var(--primary);">🎌 နေ့စဉ်သုံး ဂျပန်နှုတ်ဆက်စကားများ (Greetings)</strong>
-                    <ul style="margin-left: 20px; margin-top: 8px; line-height: 1.8;">
-                        <li><strong>おはようございます (Ohayou gozaimasu)</strong> - မင်္ဂလာနံနက်ခင်းပါ</li>
-                        <li><strong>こんにちは (Konnichiwa)</strong> - မင်္ဂလာနေ့လယ်ခင်းပါ</li>
-                        <li><strong>こんばんは (Konbanwa)</strong> - မင်္ဂလာညချမ်းပါ</li>
-                        <li><strong>ありがとうございます (Arigatou gozaimasu)</strong> - ကျေးဇူးတင်ပါတယ်</li>
-                    </ul>
-                </div>
-
-                <div class="village-desc">
-                    <strong style="color: var(--accent);">💡 ဂျပန်စာလေ့လာသူများအတွက် မှတ်စု</strong>
-                    <p style="margin-top: 5px;">Hiragana နှင့် Katakana ကို ဦးစွာကျွမ်းကျင်အောင် လေ့ကျင့်ပြီးမှ Kanji များဆီသို့ အဆင့်ချင်းတက်လှမ်းပါ။ နေ့စဉ် ဂျပန်စာလုံးရေ (၅) လုံးစီ မှတ်သားပါ။</p>
+                <h2 id="jp-heading"><i class="fa-solid fa-language"></i> ဂျပန်စာ လေ့လာရေးနှင့် သဒ္ဒါ (日本語学習)</h2>
+                <div class="desc-box" id="jp-content">
+                    <strong style="color: var(--primary);">✨ အခြေခံသဒ္ဒါ (Grammar) များနှင့် နေ့စဉ်သုံးများ</strong>
+                    <p style="margin-top: 6px;">~は (wa), ~です (desu), ~を (wo) စသည့် အခြေခံသဒ္ဒါများနှင့် おはようございます (မင်္ဂလာနံနက်ခင်းပါ) စသည့် နေ့စဉ်သုံးစကားများကို လေ့လာနိုင်ပါသည်။</p>
                 </div>
             </div>
         </div>
 
-        <!-- Tab 5: Feedback ပေးရန် -->
+        <!-- Tab 5: Feedback -->
         <div id="tab-feedback" class="page">
             <div class="card">
-                <h3><i class="fa-solid fa-comments"></i> <span data-i="nav_feedback">အကြံပြုချက် (Feedback) ပေးရန်</span></h3>
-                <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 15px;" data-i="feedback_sub">ဤ App နှင့် ပတ်သက်၍ သင်၏ အကြံပြုချက် သို့မဟုတ် လိုအပ်ချက်များကို ရေးသားပေးပို့နိုင်ပါသည်။[span_7](start_span)[span_7](end_span)</p>
+                <h2 id="fb-main-heading"><i class="fa-solid fa-comments"></i> အက်ပ်အပေါ် ကြည့်ရှုသူများ၏ Feedback များ</h2>
                 
-                <input type="text" id="fb-name" placeholder="သင့်နာမည် (Your Name)">
-                <textarea id="fb-msg" rows="4" placeholder="အကြံပြုချက် ရေးရန်..."></textarea>
-                <button class="action-btn" onclick="sendFeedback()"><i class="fa-solid fa-paper-plane"></i> <span data-i="btn_send">ပေးပို့မည်</span>[span_8](start_span)[span_8](end_span)</button>
-                
-                <div id="feedback-list" style="margin-top: 20px;"></div>
+                <div class="modern-chat-wrapper">
+                    <div id="feedback-messages" class="chat-messages"></div>
+                    <div class="chat-input-group">
+                        <input type="text" id="fb-name" placeholder="👤 သင့်နာမည် (Your Name)">
+                        <div class="chat-input-row">
+                            <input type="text" id="fb-input" placeholder="💭 အက်ပ်အပေါ် သင့်အမြင်/Feedback ရေးရန်...">
+                            <button class="send-btn-modern" onclick="sendFeedback()" id="fb-send-btn">
+                                <i class="fa-solid fa-paper-plane"></i> ပေးပို့
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Tab 6: Settings (Language & Theme) -->
+        <!-- Tab 6: Settings -->
         <div id="tab-settings" class="page">
             <div class="card">
-                <h3><i class="fa-solid fa-sliders"></i> <span data-i="nav_settings">ဆက်တင် (Settings)</span>[span_9](start_span)[span_9](end_span)</h3>
-                
-                <label style="font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-language"></i> <span data-i="lbl_lang">ဘာသာစကား ရွေးချယ်ရန် (Language)</span>[span_10](start_span)[span_10](end_span)</label>
+                <h2 id="settings-heading"><i class="fa-solid fa-sliders"></i> ဆက်တင် (Settings)</h2>
+                <label id="lbl-lang" style="font-weight: bold; display: block; margin-bottom: 8px;">ဘာသာစကား (Language - မြန်မာ / ဂျပန် / တရုတ်)</label>
                 <select id="lang-select" onchange="changeLanguage(this.value)">
-                    <option value="my">မြန်မာ (Myanmar)[span_11](start_span)[span_11](end_span)</option>
-                    <option value="jp">日本語 (Japanese)[span_12](start_span)[span_12](end_span)</option>
+                    <option value="my">မြန်မာ (Myanmar)</option>
+                    <option value="jp">日本語 (Japanese)</option>
+                    <option value="cn">中文 (Chinese)</option>
                 </select>
-
-                <label style="font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; margin-top: 20px;"><i class="fa-solid fa-palette"></i> <span data-i="lbl_theme">အပြင်အဆင် (Theme)</span>[span_13](start_span)[span_13](end_span)</label>
-                <button class="action-btn" onclick="toggleTheme()" style="margin-top: 10px; background: linear-gradient(135deg, #475569, #334155);"><i class="fa-solid fa-circle-half-stroke"></i> <span data-i="btn_theme">Theme ပြောင်းရန်</span>[span_14](start_span)[span_14](end_span)</button>
+                <label id="lbl-theme" style="font-weight: bold; display: block; margin-top: 20px; margin-bottom: 8px;">အပြင်အဆင် (Theme Mode)</label>
+                <button class="action-btn" onclick="toggleTheme()" id="btn-theme-toggle" style="background: #334155;">Dark / Light ပြောင်းရန်</button>
             </div>
         </div>
 
@@ -453,29 +410,29 @@
 
     <!-- Bottom Navigation Bar -->
     <div class="bottom-nav">
-        <button class="nav-item active" onclick="switchTab('beauty', this)">
-            <i class="fa-solid fa-mountain-sun"></i>
-            <span>ရွာအလှ</span>
+        <button class="nav-item active" onclick="switchTab('gallery', this)" data-nav="gallery">
+            <i class="fa-solid fa-images"></i>
+            <span id="nav-gallery">ရွာအလှ</span>
         </button>
-        <button class="nav-item" onclick="switchTab('about', this)">
+        <button class="nav-item" onclick="switchTab('about', this)" data-nav="about">
             <i class="fa-solid fa-circle-info"></i>
-            <span>အကြောင်း</span>
+            <span id="nav-about">အကြောင်း</span>
         </button>
-        <button class="nav-item" onclick="switchTab('updates', this)">
+        <button class="nav-item" onclick="switchTab('updates', this)" data-nav="updates">
             <i class="fa-solid fa-bullhorn"></i>
-            <span>Updates</span>
+            <span id="nav-updates">Updates</span>
         </button>
-        <button class="nav-item" onclick="switchTab('japanese', this)">
+        <button class="nav-item" onclick="switchTab('japanese', this)" data-nav="japanese">
             <i class="fa-solid fa-language"></i>
-            <span>ဂျပန်စာ</span>
+            <span id="nav-japanese">ဂျပန်စာ</span>
         </button>
-        <button class="nav-item" onclick="switchTab('feedback', this)">
-            <i class="fa-solid fa-comment-dots"></i>
-            <span>Feedback</span>
+        <button class="nav-item" onclick="switchTab('feedback', this)" data-nav="feedback">
+            <i class="fa-solid fa-comments"></i>
+            <span id="nav-feedback">Feedback</span>
         </button>
-        <button class="nav-item" onclick="switchTab('settings', this)">
+        <button class="nav-item" onclick="switchTab('settings', this)" data-nav="settings">
             <i class="fa-solid fa-gear"></i>
-            <span>Settings</span>
+            <span id="nav-settings">Settings</span>
         </button>
     </div>
 
@@ -495,46 +452,198 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
 
-        const langData = {
+        const translations = {
             my: {
-                app_title: "Yay Kyi Bin Technology",
-                app_subtitle: "ရွာအလှနှင့် နည်းပညာ တီထွင်ဖန်တီးမှုများ",
-                nav_beauty: "ရွာအလှ",
-                nav_about: "ရွာအကြောင်း",
-                nav_feedback: "Feedback",
-                nav_settings: "Settings",
-                p1_title: "ရှုခင်းအလှ ၁", p1_desc: "ရေကြည်ပင်ရွာ၏ သဘာဝဆန်သော ကျေးလက်ရှုခင်းနှင့် စိမ်းလန်းစိုပြေသည့် လယ်ကွင်းပြင်များ။",
-                p2_title: "ရှုခင်းအလှ ၂", p2_desc: "ရွာဦးကျောင်းတိုက်နှင့် အေးချမ်းသာယာသော ရေကန်ဘေးဝန်းကျင်။",
-                p3_title: "ရှုခင်းအလှ ၃", p3_desc: "ကျေးလက်နေပြည်သူများ၏ နံနက်ခင်း ဆည်းဆာ အလှတရားများ။",
-                p4_title: "ရှုခင်းအလှ ၄", p4_desc: "ရွာဝင်လမ်းမကြီးတစ်လျှောက်ရှိ စိမ်းလန်းစိုပြေသော သစ်ပင်ကြီးများ။",
-                p5_title: "ရှုခင်းအလှ ၅", p5_desc: "ရွာသူရွာသားများ၏ ချစ်စရာကောင်းသော ရိုးရာဓလေ့နှင့် လူနေမှုဘဝပုံစံ။",
-                dev_role: "Lead Developer & Community Technologist",
-                feedback_sub: "ဤ App နှင့် ပတ်သက်၍ သင်၏ အကြံပြုချက် သို့မဟုတ် လိုအပ်ချက်များကို ရေးသားပေးပို့နိုင်ပါသည်။",
-                btn_send: "ပေးပို့မည်",
-                lbl_lang: "ဘာသာစကား ရွေးချယ်ရန် (Language)",
-                lbl_theme: "အပြင်အဆင် (Theme)",
-                btn_theme: "Theme ပြောင်းရန်"
+                vpnText: '<i class="fa-solid fa-triangle-exclamation"></i> US Server ချိတ်ဆက်ထားပါသဖြင့် VPN ဖွင့်ထားပေးပါ။',
+                hdrSubtitle: 'ရွာအလှနှင့် နည်းပညာ တီထွင်ဖန်တီးမှုများ',
+                galleryHeading: '<i class="fa-solid fa-images"></i> ရွာရှုခင်းပြခန်း (ပုံ ၂၀ ခုစာ)',
+                uploadText: 'ပုံထည့်ရန် ဤနေရာကို နှိပ်ပါ',
+                aboutHeading: '<i class="fa-solid fa-book-open"></i> ရေကြည်ပင်ရွာ မိတ်ဆက်',
+                updatesHeading: '<i class="fa-solid fa-bullhorn"></i> နည်းပညာနှင့် ရွာသတင်းများ',
+                jpHeading: '<i class="fa-solid fa-language"></i> ဂျပန်စာ လေ့လာရေးနှင့် သဒ္ဒါ (日本語学習)',
+                fbMainHeading: '<i class="fa-solid fa-comments"></i> အက်ပ်အပေါ် ကြည့်ရှုသူများ၏ Feedback များ',
+                fbNamePlaceholder: '👤 သင့်နာမည် (Your Name)',
+                fbInputPlaceholder: '💭 အက်ပ်အပေါ် သင့်အမြင်/Feedback ရေးရန်...',
+                fbSendBtn: '<i class="fa-solid fa-paper-plane"></i> ပေးပို့',
+                settingsHeading: '<i class="fa-solid fa-sliders"></i> ဆက်တင် (Settings)',
+                lblLang: 'ဘာသာစကား (Language - မြန်မာ / ဂျပန် / တရုတ်)',
+                lblTheme: 'အပြင်အဆင် (Theme Mode)',
+                btnThemeToggle: 'Dark / Light ပြောင်းရန်',
+                navGallery: 'ရွာအလှ',
+                navAbout: 'အကြောင်း',
+                navUpdates: 'Updates',
+                navJapanese: 'ဂျပန်စာ',
+                navFeedback: 'Feedback',
+                navSettings: 'Settings'
             },
             jp: {
-                app_title: "ヤイクイビン・テクノロジー",
-                app_subtitle: "村の美しさとテクノロジーの融合",
-                nav_beauty: "村の景色",
-                nav_about: "村について",
-                nav_feedback: "フィードバック",
-                nav_settings: "設定",
-                p1_title: "美しい景色 1", p1_desc: "ヤイクイビン村の自然豊かな田園風景。",
-                p2_title: "美しい景色 2", p2_desc: "村の寺院と静かな池の周辺。",
-                p3_title: "美しい景色 3", p3_desc: "村の美しい朝の風景。",
-                p4_title: "美しい景色 4", p4_desc: "緑豊かな村のメインストリート。",
-                p5_title: "美しい景色 5", p5_desc: "村の人々の温かい伝統と暮らしぶり。",
-                dev_role: "リードデベロッパー ＆ コミュニティエンジニア",
-                feedback_sub: "このアプリに関するご意見やご要望をお聞かせください。",
-                btn_send: "送信する",
-                lbl_lang: "言語選択 (Language)",
-                lbl_theme: "テーマ (Theme)",
-                btn_theme: "テーマ切替"
+                vpnText: '<i class="fa-solid fa-triangle-exclamation"></i> USサーバー接続中のため、VPNを有効にしてください。',
+                hdrSubtitle: '村の景色とテクノロジーのイノベーション',
+                galleryHeading: '<i class="fa-solid fa-images"></i> 村の風景ギャラリー (20枚)',
+                uploadText: '画像をアップロードするにはここをクリック',
+                aboutHeading: '<i class="fa-solid fa-book-open"></i> イェー・チー・ビン村の紹介',
+                updatesHeading: '<i class="fa-solid fa-bullhorn"></i> テクノロジーと村のニュース',
+                jpHeading: '<i class="fa-solid fa-language"></i> 日本語学習と文法',
+                fbMainHeading: '<i class="fa-solid fa-comments"></i> アプリへのフィードバック',
+                fbNamePlaceholder: '👤 あなたのお名前',
+                fbInputPlaceholder: '💭 フィードバックを入力してください...',
+                fbSendBtn: '<i class="fa-solid fa-paper-plane"></i> 送信',
+                settingsHeading: '<i class="fa-solid fa-sliders"></i> 設定 (Settings)',
+                lblLang: '言語 (Language - ミャンマー / 日本語 / 中国語)',
+                lblTheme: 'テーマモード',
+                btnThemeToggle: 'ダーク/ライト切替',
+                navGallery: '風景',
+                navAbout: '紹介',
+                navUpdates: 'ニュース',
+                navJapanese: '日本語',
+                navFeedback: '意見',
+                navSettings: '設定'
+            },
+            cn: {
+                vpnText: '<i class="fa-solid fa-triangle-exclamation"></i> 已连接US服务器，请保持VPN开启。',
+                hdrSubtitle: '村庄美景与科技创新',
+                galleryHeading: '<i class="fa-solid fa-images"></i> 村庄风景画廊 (20张)',
+                uploadText: '点击此处上传图片',
+                aboutHeading: '<i class="fa-solid fa-book-open"></i> 耶齐宾村简介',
+                updatesHeading: '<i class="fa-solid fa-bullhorn"></i> 科技与村庄新闻',
+                jpHeading: '<i class="fa-solid fa-language"></i> 日语学习与语法',
+                fbMainHeading: '<i class="fa-solid fa-comments"></i> 用户反馈与评论',
+                fbNamePlaceholder: '👤 您的姓名',
+                fbInputPlaceholder: '💭 请输入您的意见或反馈...',
+                fbSendBtn: '<i class="fa-solid fa-paper-plane"></i> 发送',
+                settingsHeading: '<i class="fa-solid fa-sliders"></i> 设置 (Settings)',
+                lblLang: '语言 (Language - 缅甸语 / 日语 / 中文)',
+                lblTheme: '主题模式',
+                btnThemeToggle: '切换 深色/浅色',
+                navGallery: '美景',
+                navAbout: '简介',
+                navUpdates: '动态',
+                navJapanese: '日语',
+                navFeedback: '反馈',
+                navSettings: '设置'
             }
         };
+
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            if(!t) return;
+            document.getElementById('vpn-text').innerHTML = t.vpnText;
+            document.getElementById('hdr-subtitle').innerText = t.hdrSubtitle;
+            document.getElementById('gallery-heading').innerHTML = t.galleryHeading;
+            document.getElementById('about-heading').innerHTML = t.aboutHeading;
+            document.getElementById('updates-heading').innerHTML = t.updatesHeading;
+            document.getElementById('jp-heading').innerHTML = t.jpHeading;
+            document.getElementById('fb-main-heading').innerHTML = t.fbMainHeading;
+            document.getElementById('fb-name').placeholder = t.fbNamePlaceholder;
+            document.getElementById('fb-input').placeholder = t.fbInputPlaceholder;
+            document.getElementById('fb-send-btn').innerHTML = t.fbSendBtn;
+            document.getElementById('settings-heading').innerHTML = t.settingsHeading;
+            document.getElementById('lbl-lang').innerText = t.lblLang;
+            document.getElementById('lbl-theme').innerText = t.lblTheme;
+            document.getElementById('btn-theme-toggle').innerText = t.btnThemeToggle;
+
+            document.getElementById('nav-gallery').innerText = t.navGallery;
+            document.getElementById('nav-about').innerText = t.navAbout;
+            document.getElementById('nav-updates').innerText = t.navUpdates;
+            document.getElementById('nav-japanese').innerText = t.navJapanese;
+            document.getElementById('nav-feedback').innerText = t.navFeedback;
+            document.getElementById('nav-settings').innerText = t.navSettings;
+
+            for(let i=1; i<=20; i++) {
+                const sp = document.getElementById('span-txt-' + i);
+                if(sp) sp.innerText = t.uploadText;
+            }
+        }
+
+        const container = document.getElementById('twenty-gallery-container');
+        const defaultTexts = [
+            "ရေကြည်ပင်ရွာ၏ သဘာဝဆန်သော ကျေးလက်ရှုခင်းနှင့် စိမ်းလန်းစိုပြေသည့် လယ်ကွင်းပြင်များ။",
+            "ရွာ၏အထင်ကရနေရာဖြစ်သော အေးချမ်းသာယာသည့် ဘုရားကြီးကျောင်းတိုက်။",
+            "တောင်ဘက်တွင် စီးဆင်းနေသော သာယာလှပသည့် ယမားချောင်း။",
+            "ရွာ၏ရှုခင်းများကို အပေါ်စီးမှ မြင်တွေ့ရသော ကျားတွင်းတောင်။",
+            "လူငယ်များ ပညာသင်ကြားရာနှင့် အားကစားပြုလုပ်ရာ ရွာထိပ်စာသင်ကျောင်း။",
+            "ရိုးသားကြိုးစားကြသော ရွာသူရွာသားများ၏ စိုက်ပျိုးရေးလုပ်ငန်းခွင်။",
+            "ညနေခင်း ရွာလမ်းမများပေါ်ရှိ အေးချမ်းသော လူနေမှုဘဝပုံရိပ်။",
+            "နည်းပညာကို စိတ်ဝင်စားစွာ လေ့လာနေကြသော ရွာငယ်များ၏ လှုပ်ရှားမှု။",
+            "ရွာဓလေ့ ရိုးရာအမွေအနှစ်များကို ထိန်းသိမ်းထားရှိမှု။",
+            "မိုးရာသီကာလ ရေကြည်ပင်ရွာ၏ စိမ်းလန်းစိုပြေသည့် သဘာဝရှုခင်း။",
+            "နွေရာသီ နေဝင်ဆည်းဆာချိန် ရွာရှုခင်းအလှ။",
+            "ရွာသူရွာသားများ အချင်းချင်း ရိုင်းပင်းကူညီနေကြသည့် ပုံရိပ်။",
+            "ကျေးလက်ဖွံ့ဖြိုးရေးအတွက် ဆောင်ရွက်လျက်ရှိသော တည်ဆောက်ရေးလုပ်ငန်းများ။",
+            "ဒေသခံလူငယ်များ စုပေါင်း၍ ဘောလုံးကစားပျော်ရွှင်နေစဉ်။",
+            "ရေကြည်ပင်ရွာသို့ လာရောက်လည်ပတ်သူများအတွက် အမှတ်တရနေရာများ။",
+            "ရွာ၏အဓိက သယ်ယူပို့ဆောင်ရေးနှင့် လမ်းပန်းဆက်သွယ်ရေးမြင်ကွင်း။",
+            "သဘာဝပတ်ဝန်းကျင် ထိန်းသိမ်းရေးအတွက် စိုက်ပျိုးထားသော သစ်ပင်စိမ်းများ။",
+            "အနာဂတ်စမတ်ကျေးရွာ တည်ဆောက်ရေးအတွက် ရည်မှန်းချက်ပုံရိပ်။",
+            "ရွာသူရွာသားများ၏ ယဉ်ကျေးသိမ်မွေ့သော ဧည့်ဝတ်ကျေပွန်မှု။",
+            "ရေကြည်ပင်ရွာ၏ အနာဂတ်ဖွံ့ဖြိုးတိုးတက်မှုကို ကိုယ်စားပြုသည့် မှတ်တမ်းပုံ။"
+        ];
+
+        for (let i = 1; i <= 20; i++) {
+            const slotId = 'slot_' + i;
+            container.innerHTML += `
+                <div class="card">
+                    <h2><i class="fa-solid fa-camera"></i> ရှုခင်းအလှ ${i}</h2>
+                    <div class="image-upload-box" onclick="triggerSlotUpload('${slotId}')">
+                        <div class="upload-placeholder" id="placeholder-${slotId}">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span id="span-txt-${i}">ပုံထည့်ရန် ဤနေရာကို နှိပ်ပါ</span>
+                        </div>
+                        <img id="img-${slotId}" style="display:none;">
+                    </div>
+                    <input type="file" accept="image/*" id="file-${slotId}" style="display:none" onchange="uploadSlotImage(event, '${slotId}')">
+                    
+                    <div class="desc-box">
+                        <i class="fa-solid fa-circle-info"></i> <strong>ပုံရှင်းလင်းချက် (Feedback):</strong> 
+                        <span id="desc-${slotId}">${defaultTexts[i-1]}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function triggerSlotUpload(slotId) {
+            document.getElementById('file-' + slotId).click();
+        }
+
+        function uploadSlotImage(event, slotId) {
+            const file = event.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                const img = new Image();
+                img.src = e.target.result;
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let w = img.width, h = img.height;
+                    const MAX = 1200;
+                    if (w > h) { if (w > MAX) { h *= MAX / w; w = MAX; } }
+                    else { if (h > MAX) { w *= MAX / h; h = MAX; } }
+                    canvas.width = w; canvas.height = h;
+                    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                    const base64 = canvas.toDataURL('image/jpeg', 0.85);
+                    
+                    db.ref('twenty_slots/' + slotId).set({ imageUrl: base64 })
+                    .then(() => alert("ပုံ အောင်မြင်စွာ တင်ပြီးပါပြီ။"));
+                };
+            };
+            reader.readAsDataURL(file);
+        }
+
+        for (let i = 1; i <= 20; i++) {
+            const slotId = 'slot_' + i;
+            db.ref('twenty_slots/' + slotId + '/imageUrl').on('value', snap => {
+                const url = snap.val();
+                if(url) {
+                    const imgEl = document.getElementById('img-' + slotId);
+                    const phEl = document.getElementById('placeholder-' + slotId);
+                    if(imgEl && phEl) {
+                        imgEl.src = url;
+                        imgEl.style.display = 'block';
+                        phEl.style.display = 'none';
+                    }
+                }
+            });
+        }
 
         function switchTab(tabId, el) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -544,91 +653,37 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function triggerUpload(id) {
-            document.getElementById(id).click();
-        }
-
-        function uploadImage(event, postId) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.src = e.target.result;
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    const MAX_SIZE = 600;
-                    let width = img.width;
-                    let height = img.height;
-
-                    if (width > height) {
-                        if (width > MAX_SIZE) { height *= MAX_SIZE / width; width = MAX_SIZE; }
-                    } else {
-                        if (height > MAX_SIZE) { width *= MAX_SIZE / height; height = MAX_SIZE; }
-                    }
-
-                    canvas.width = width;
-                    canvas.height = height;
-                    canvas.getContext('2d').drawImage(img, 0, 0, width, height);
-                    
-                    const compressedBase64 = canvas.toDataURL('image/jpeg', 0.6);
-                    
-                    db.ref('posts/' + postId).set({ imageUrl: compressedBase64 })
-                    .then(() => alert("ပုံတင်ခြင်း အောင်မြင်ပါသည်။"))
-                    .catch((err) => alert("Error: " + err.message));
-                };
-            };
-            reader.readAsDataURL(file);
-        }
-
-        ['p1', 'p2', 'p3', 'p4', 'p5'].forEach(postId => {
-            db.ref('posts/' + postId).on('value', (snapshot) => {
-                const data = snapshot.val();
-                if (data && data.imageUrl) {
-                    document.getElementById('img-' + postId).src = data.imageUrl;
-                }
-            });
-        });
-
         function sendFeedback() {
             const name = document.getElementById('fb-name').value.trim();
-            const msg = document.getElementById('fb-msg').value.trim();
-            if(!name || !msg) {
-                alert("နာမည်နှင့် အကြံပြုချက်ကို အပြည့်အစုံ ရေးပေးပါ။");
-                return;
-            }
-
-            db.ref('feedbacks').push({ name: name, message: msg, time: Date.now() })
-            .then(() => {
-                alert("ကျေးဇူးတင်ပါသည်၊ အကြံပြုချက် ပေးပို့ပြီးပါပြီ။");
-                document.getElementById('fb-name').value = '';
-                document.getElementById('fb-msg').value = '';
+            const msg = document.getElementById('fb-input').value.trim();
+            if(!name || !msg) { alert("နာမည်နှင့် Feedback ကို ဖြည့်ပါ။"); return; }
+            db.ref('app_feedbacks').push({ name, msg }).then(() => {
+                document.getElementById('fb-input').value = '';
             });
         }
 
-        db.ref('feedbacks').on('value', (snapshot) => {
-            const list = document.getElementById('feedback-list');
-            list.innerHTML = '<h4 style="margin-bottom:12px; font-size:1.1rem; color: var(--primary);"><i class="fa-solid fa-list-ul"></i> ရရှိထားသော အကြံပြုချက်များ:</h4>';
-            snapshot.forEach((child) => {
+        db.ref('app_feedbacks').on('value', snap => {
+            const box = document.getElementById('feedback-messages');
+            box.innerHTML = '';
+            snap.forEach(child => {
                 const fb = child.val();
-                list.innerHTML += `<div class="feedback-item"><strong style="color: var(--primary);"><i class="fa-solid fa-user-circle"></i> ${fb.name}:</strong> <span style="color: var(--text);">${fb.message}</span></div>`;
+                const firstLetter = fb.name.charAt(0).toUpperCase();
+                box.innerHTML += `
+                    <div class="chat-bubble-card">
+                        <div class="chat-header-row">
+                            <div class="chat-avatar">${firstLetter}</div>
+                            <div class="chat-username">${fb.name}</div>
+                        </div>
+                        <div class="chat-body-text">${fb.msg}</div>
+                    </div>
+                `;
             });
+            box.scrollTop = box.scrollHeight;
         });
-
-        function changeLanguage(lang) {
-            document.querySelectorAll('[data-i]').forEach(el => {
-                const key = el.getAttribute('data-i');
-                if(langData[lang][key]) {
-                    el.innerText = langData[lang][key];
-                }
-            });
-        }
 
         function toggleTheme() {
             const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
+            body.setAttribute('data-theme', body.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
         }
     </script>
 </body>
